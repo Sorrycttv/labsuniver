@@ -1,0 +1,79 @@
+import  random
+#функция генерации и заполнения одномерного массива
+def inputlistrand(size):
+     if size <= 0:
+          print ("количество чисел в массиве должно быть >0")
+          exit()
+
+     mylist = list()
+     for i in range(size):
+         mylist.append(random.randint(-100, 100))
+
+     return mylist
+#создание и заполнение списка с количества  элементов до элементов
+#def inputlist (size):
+#создание списка
+#    lst = list()
+#     for i in range(size):
+#              item = int(input('Введите эмелент списка: '))
+#   #добавление нового элемента в конец списка
+#              lst.append(item)
+#    return lst
+#вывод содержимого одномерного массива на экран
+
+#def mylist
+
+def outputlist(mylist):
+     for i in range(len(mylist)):
+        print(mylist[i], end = ' ')
+     print()
+
+     #сумма элементов списка
+     
+def Sumlist(mylist):
+    summ = 0 
+    for i in range(len(mylist)):
+        summ += mylist[i]
+    return summ
+
+def MinPosition(Mylist):
+     minP = mylist[0]
+     c = 1
+     for i in range(0, len(mylist)):
+          if mylist[i] < minP:
+               minP = mylist[i]
+               c = i
+     return c
+
+def MaxPosition(mylist):
+     maxP = mylist[0]
+     d = 1
+     for i in range(1, len(mylist)):
+          if mylist[i] > maxP:
+               maxP = mylist[i]
+               d = i
+     return d
+
+def summaxmin(mylist):
+     maxP = MaxPosition(mylist)
+     minP = MinPosition(mylist)
+     if minP < maxP:
+          a = minP
+          b = maxP
+     else:
+          a = maxP
+          b = minP
+     summ = 0
+     for i in range(a+1, b):
+          if mylist[i] < 0:
+               summ += mylist[i]
+     return summ
+#работа со списком
+n = int(input('Введите размер списка: '))
+mylist = inputlistrand(n)
+outputlist(mylist)
+resultSum = Sumlist(mylist)
+print('сумма елементов списка:', resultSum)
+resultsummaxmin = summaxmin(mylist)
+print('сумма элементов между мин и макс', resultsummaxmin)
+resultMinP = MinPosition(mylist)
